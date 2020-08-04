@@ -11,7 +11,8 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
       include Decidim::Budgets::Engine.routes.url_helpers
 
-      delegate :current_user, :current_settings, :current_order, :current_component, :current_participatory_space, :can_have_order?, to: :parent_controller
+      delegate :current_user, :current_settings, :current_order, :current_component,
+               :current_participatory_space, :can_have_order?, :voting_open?, :voting_finished?, to: :parent_controller
 
       def project_image
         render
@@ -29,20 +30,8 @@ module Decidim
         render
       end
 
-      def project_data_final
-        render
-      end
-
-      def project_data_numbers
-        render
-      end
-
       def project_data_vote_button
         render
-      end
-
-      def voting_finished?
-        !current_settings.votes_enabled? && current_settings.show_votes?
       end
 
       private

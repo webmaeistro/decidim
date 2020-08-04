@@ -28,7 +28,7 @@ module Decidim
 
         def can_have_order?
           current_user.present? &&
-            current_settings.votes_enabled? &&
+            voting_open? &&
             current_participatory_space.can_participate?(current_user) &&
             allowed_to?(:create, :order, budget: budget, workflow: current_workflow)
         end
