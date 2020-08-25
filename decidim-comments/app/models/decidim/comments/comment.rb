@@ -45,7 +45,7 @@ module Decidim
       delegate :organization, to: :commentable
 
       searchable_fields(
-        participatory_space: { component: :participatory_space },
+        participatory_space: :itself,
         A: :body,
         datetime: :created_at
       )
