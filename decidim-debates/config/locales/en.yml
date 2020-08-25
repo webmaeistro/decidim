@@ -103,13 +103,22 @@ en:
           save: Save changes
           title: Edit debate
         filters:
+          activity: My activity
           all: All
           category: Category
           category_prompt: Select a category
           citizens: Citizens
+          commented: Commented
+          my_debates: My debates
           official: Official
           origin: Origin
+          scope: Scope
           search: Search
+          state: Status
+          state_values:
+            open: Open
+            closed: Closed
+          user_groups: Groups
         filters_small_view:
           close_modal: Close modal
           filter: Filter
