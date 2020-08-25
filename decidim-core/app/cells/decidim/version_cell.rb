@@ -77,7 +77,7 @@ module Decidim
     end
 
     def resource_path
-      resource_locator(versioned_resource).path
+      resource_locator(versioned_resource).path(safe_link_params)
     end
   end
 end
