@@ -84,6 +84,7 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :Filterable, "decidim/filterable"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

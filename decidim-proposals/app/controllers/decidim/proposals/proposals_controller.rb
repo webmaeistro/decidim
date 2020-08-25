@@ -230,22 +230,6 @@ module Decidim
         filter_origin_params
       end
 
-      def default_filter_category_params
-        return "all" unless current_component.participatory_space.categories.any?
-
-        ["all"] + current_component.participatory_space.categories.pluck(:id).map(&:to_s)
-      end
-
-      def default_filter_scope_params
-        return "all" unless current_component.participatory_space.scopes.any?
-
-        if current_component.participatory_space.scope
-          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.participatory_space.scopes.pluck(:id).map(&:to_s)
-        end
-      end
-
       def proposal_draft
         Proposal.from_all_author_identities(current_user).not_hidden.only_amendables
                 .where(component: current_component).find_by(published_at: nil)
